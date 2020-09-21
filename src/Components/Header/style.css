@@ -1,0 +1,30 @@
+.headercontainer{
+    background: rgb(215, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headercontainer > h2{
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bottomNav{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
