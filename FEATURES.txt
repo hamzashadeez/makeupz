@@ -1,0 +1,10 @@
+MAKEUPZ FEATURES
+
+[] Authentication
+[] Feeds
+[] Videos
+[] Like Functionality
+[] Post
+[] User Profile
+[] Save Post
+[] Comment to Posts
