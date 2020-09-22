@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 55px;
 }
 
 .headercontainer > h2{
@@ -27,4 +28,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    border-top: 1px solid #ccc;
+}
+.Screen{
+    background: #fefefe;
+    position: absolute;
+    width: 100%;
+    top: 58px;
+    height: 85vh;
 }
