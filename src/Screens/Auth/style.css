@@ -9,7 +9,19 @@
     text-align: left;
     font-size: 3.5rem;
     letter-spacing: 3px;
-    color: rgb(215, 0, 0)
+    color: rgb(215, 0, 0);
+    z-index: 100;
+}
+#header{
+    text-align: left;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    color: rgb(215, 0, 0);
+    z-index: 100;
+}
+#motto{
+    font-size: 1.8rem;
+    color: #000
 }
 .login > h5{
     font-size: 1.8rem;
@@ -46,4 +58,12 @@
     color: "white";
      padding: 5px 10px;
      margin-left: 10px
+}
+#link{
+    padding: 5px 15px;
+    color: white;
+    margin-left: 12px;
+    background: tomato;
+    text-decoration: none;
+    z-index: 100;
 }

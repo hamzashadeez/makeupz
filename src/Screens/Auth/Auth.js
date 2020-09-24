@@ -1,11 +1,11 @@
 import { Button, TextField } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import Form from "react-bootstrap/Form";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Auth = () => {
   const [phone, setPhone] = useState("");
+  const [password, SetPassword] = useState('')
   return (
     <div>
       <div className="sec login">
@@ -25,6 +25,7 @@ const Auth = () => {
             />
             <label style={{ height: "10px" }}></label>
             <TextField
+              password={true}
               color="secondary"
               id="outlined-basic"
               className="inputs"
@@ -37,22 +38,25 @@ const Auth = () => {
             <Button
               style={{ background: "orange", marginBottom: "20px" }}
               variant="contained"
-              type='button'
+              type="button"
             >
               Log In
             </Button>
           </form>
-          <div style={{ display: "flex",flexDirection: 'column',marginTop:'100px',  alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              marginTop: "100px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <h4>New Member ?</h4>
-            <h5 className='text-secondary'>Scroll Down To Register</h5>
-            <ArrowDownwardIcon color='secondary' style={{fontSize: 60}}/>
+            <Link id='link' to='./sign_up'>Register</Link>
           </div>
         </div>
-        
       </div>
-      <div id="register" className="sec">
-        Terms and Policy
-      </div>
+     
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./Screens/Home/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Auth from "./Screens/Auth/Auth";
+import SignUp from "./Screens/Auth/SignUp";
 
 function App() {
   const routes = [
@@ -11,6 +12,11 @@ function App() {
       exact: true,
       sidebar: () => <div>dashboard</div>,
       main: () => <Auth />
+    },
+    {
+      path: "/sign_up",
+      sidebar: () => <div>patients</div>,
+      main: () =><SignUp />,
     },
     {
       path: "/home",
