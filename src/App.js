@@ -9,7 +9,7 @@ function App() {
       path: "/",
       exact: true,
       sidebar: () => <div>dashboard</div>,
-      main: () => <h1>root</h1>,
+      main: () => <Link className='' to='./home'>Goto Home</Link>,
     },
     {
       path: "/home",
