@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Home from "./Screens/Home/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Auth from "./Screens/Auth/Auth";
 
 function App() {
   const routes = [
@@ -9,7 +10,7 @@ function App() {
       path: "/",
       exact: true,
       sidebar: () => <div>dashboard</div>,
-      main: () => <Link className='' to='./home'>Goto Home</Link>,
+      main: () => <Auth />
     },
     {
       path: "/home",
