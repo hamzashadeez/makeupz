@@ -11,7 +11,8 @@ function App() {
       path: "/",
       exact: true,
       sidebar: () => <div>dashboard</div>,
-      main: () => <Auth />
+      main: () => <Home />
+      // main: () => <Auth />
     },
     {
       path: "/sign_up",

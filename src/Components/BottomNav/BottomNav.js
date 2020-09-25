@@ -7,6 +7,7 @@ import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./style.css";
+import Feed from "../Feed/Feed";
 
 const useStyles = makeStyles({
   root: {
@@ -29,7 +30,7 @@ export default function SimpleBottomNavigation() {
   const render =()=>{
     switch (value){
         case 0:
-             return <h1>Feeds</h1>;
+             return <Feed />;
         case 1:
              return <h1>Videos</h1>;
         case 2:
