@@ -2,10 +2,19 @@ import { Button, TextField } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { db, auth } from '../../firebase'
+import { useHistory } from "react-router-dom";
 
 const Auth = () => {
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [password, SetPassword] = useState('')
+  let history = useHistory();
+  const handleSubmit = (event)=>{
+    event.preventDefault();
+    auth.signInWithEmailAndPassword(email,password)
+    .then(()=> history.push('/home'))
+    .catch((error)=>alert(error.message))
+  }
   return (
     <div>
       <div className="sec login">
@@ -14,18 +23,22 @@ const Auth = () => {
         <h5>The Best Place To Grow Your Beauty</h5>
         <div className="cont1">
           <h4>Already Have An Account ?</h4>
-          <form id="form">
+          <form id="form" onSubmit={(e)=>handleSubmit(e)}>
             <TextField
               id="outlined-basic"
               className="inputs"
-              label="Enter Phone Number (MTN)"
+              label="Enter Your Email here"
               variant="outlined"
               size="small"
               color="secondary"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
             />
             <label style={{ height: "10px" }}></label>
             <TextField
-              password={true}
+              // password={true}
+              value={password}
+              onChange={(e)=>SetPassword(e.target.value)}
               color="secondary"
               id="outlined-basic"
               className="inputs"
@@ -38,7 +51,7 @@ const Auth = () => {
             <Button
               style={{ background: "orange", marginBottom: "20px" }}
               variant="contained"
-              type="button"
+              type="submit"
             >
               Log In
             </Button>
