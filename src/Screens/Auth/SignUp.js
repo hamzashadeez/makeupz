@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
-    <div className="sec login">
-        <img src={require("../../images/brush.jpg")} />
+    <div className="sec login2">
+        {/* <img src={require("../../images/brush.jpg")} /> */}
       <div >
         <h1 id="header">Makeupz</h1>
         <h5 id="motto">Register Since You Are Beautiful</h5>
@@ -24,7 +24,7 @@ function SignUp() {
         <TextField
           id="outlined-basic"
           className="inputs"
-          label="Enter Full Name"
+          label="Enter Username here"
           variant="outlined"
           size="small"
           color="secondary"

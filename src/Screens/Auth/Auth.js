@@ -9,7 +9,7 @@ const Auth = () => {
   return (
     <div>
       <div className="sec login">
-        <img src={require("../../images/lipstick.jpg")} />
+        {/* <img src={require("../../images/lipstick.jpg")} /> */}
         <h1>Makeupz</h1>
         <h5>The Best Place To Grow Your Beauty</h5>
         <div className="cont1">

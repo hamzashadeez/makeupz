@@ -1,69 +1,82 @@
-.sec{
-    width: 100%;
-    height: 100vh;
+.sec {
+  width: 100%;
+  height: 100vh;
 }
-.login{
-    padding: 20px 20px
+.login {
+  padding: 20px 20px;
+  background-image: url("../../images/lipstick.jpg");
+  background-position: center;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-color: #efefee;
 }
-.login > h1{
-    text-align: left;
-    font-size: 3.5rem;
-    letter-spacing: 3px;
-    color: rgb(215, 0, 0);
-    z-index: 100;
+.login2 {
+  padding: 20px 20px;
+  background-image: url("../../images/brush.jpg");
+  background-position: center;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-color: #efefee;
 }
-#header{
-    text-align: left;
-    font-size: 3.5rem;
-    letter-spacing: 3px;
-    color: rgb(215, 0, 0);
-    z-index: 100;
+.login > h1 {
+  text-align: left;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  color: rgb(215, 0, 0);
+  z-index: 100;
 }
-#motto{
-    font-size: 1.8rem;
-    color: #000
+#header {
+  text-align: left;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  color: rgb(215, 0, 0);
+  z-index: 100;
 }
-.login > h5{
-    font-size: 1.8rem;
-    color: #000
+#motto {
+  font-size: 1.8rem;
+  color: #000;
+}
+.login > h5 {
+  font-size: 1.8rem;
+  color: #000;
 }
 
-.login > img{
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.55;
+.login > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
 }
-.cont1{
-    margin-top: 4rem;
+.cont1 {
+  margin-top: 4rem;
 }
-.cont1 > h4{
-    color: orangered;
-    font-size: 20px;
+.cont1 > h4 {
+  color: orangered;
+  font-size: 20px;
 }
-#form{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    justify-content: space-between;
+#form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  justify-content: space-between;
 }
-.inputs{
-    margin-bottom: 20px;
+.inputs {
+  margin-bottom: 20px;
 }
-#a{
-    background: "rgb(215,0,0)";
-    color: "white";
-     padding: 5px 10px;
-     margin-left: 10px
+#a {
+  background: "rgb(215,0,0)";
+  color: "white";
+  padding: 5px 10px;
+  margin-left: 10px;
 }
-#link{
-    padding: 5px 15px;
-    color: white;
-    margin-left: 12px;
-    background: tomato;
-    text-decoration: none;
-    z-index: 100;
+#link {
+  padding: 5px 15px;
+  color: white;
+  margin-left: 12px;
+  background: tomato;
+  text-decoration: none;
+  z-index: 100;
 }
