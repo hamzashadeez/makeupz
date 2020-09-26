@@ -15,6 +15,27 @@ const Auth = () => {
     .then(()=> history.push('/home'))
     .catch((error)=>alert(error.message))
   }
+  
+  useEffect(()=>{
+    const unsubscribe = auth.onAuthStateChanged((authUser)=>{
+      if(authUser){
+        //user has logged in
+        console.log(authUser);
+        // setUser(authUser);
+        history.push('/home')
+
+      }else{
+        //logged out
+        // setUser(null);
+        console.log('Not logged')
+      }
+    })
+
+    return ()=>{
+      //some clean ups
+      unsubscribe()
+    }
+  },[])
   return (
     <div>
       <div className="sec login">
@@ -37,6 +58,7 @@ const Auth = () => {
             <label style={{ height: "10px" }}></label>
             <TextField
               // password={true}
+              type='password'
               value={password}
               onChange={(e)=>SetPassword(e.target.value)}
               color="secondary"
@@ -59,7 +81,7 @@ const Auth = () => {
           <div
             style={{
               display: "flex",
-              marginTop: "100px",
+              marginTop: "50px",
               justifyContent: "center",
               alignItems: "center",
             }}

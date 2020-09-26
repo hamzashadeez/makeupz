@@ -77,6 +77,7 @@ function SignUp() {
           color="secondary"
           id="outlined-basic"
           className="inputs"
+          type='password'
           label="Enter Password here"
           variant="outlined"
           value={password}
