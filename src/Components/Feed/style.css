@@ -1,6 +1,8 @@
 .feed{
     background-color: #ffffff;
-    width: 100%;
+    /* width: 100%; */
+    max-width: 500px;
+    margin: auto;
     height: 90vh;
     overflow-y: scroll;
     padding: 5px 10px;
@@ -11,4 +13,20 @@
     bottom: 100px;
     right: 20px;
     z-index: 100;
+}
+#modalheader{
+    /* background: rgb(215, 0, 0); */
+    color: #ccc;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+#photo{
+    margin:0 auto 20px auto;
+    padding: 8px 1px
+
+}
+#textfield{
+    /* width: 100% !important; */
+    margin: auto;
 }
