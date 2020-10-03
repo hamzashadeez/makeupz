@@ -1,12 +1,18 @@
-import { Avatar } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { db, auth } from "../../firebase";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { IconButton } from "@material-ui/core";
+import { useHistory} from 'react-router-dom'
+import ForumIcon from "@material-ui/icons/Forum";
 import "./style.css";
 function Profile() {
   const [user, setUser] = useState({});
   useEffect(() => {
     console.log(user);
   }, [user]);
+
+  const history = useHistory();
 
   const getData = async (us) => {
     const res = await db
@@ -39,6 +45,9 @@ function Profile() {
   return (
     <div className="profilecontainer">
       <div className="pheader">
+        <IconButton onClick={()=> history.push('/home')}>
+          <ArrowBackIcon />
+        </IconButton>
         <h3>Profile</h3>
       </div>
 
@@ -69,18 +78,37 @@ function Profile() {
             <h2>{user.following}</h2>
             <h6>Following</h6>
           </div>
-
         </div>
-        <div className='details'>
-            <div className='listOF'>
-                <h4>Posts : 10</h4>
-            </div>
-            <div className='listOF'>
-                <h4>Videos : 10</h4>
-            </div>
-            <div className='listOF'>
-                <h4>Go Credit : 100</h4>
-            </div>
+        <div className="details">
+          <div className="listOF">
+            <ForumIcon
+              style={{ color: "#666", marginRight: "10px" }}
+            ></ForumIcon>
+            <h4>Posts : {user.posts}</h4>
+          </div>
+          <div className="listOF">
+            <ForumIcon
+              style={{ color: "#666", marginRight: "10px" }}
+            ></ForumIcon>
+            <h4>Videos : {user.videos}</h4>
+          </div>
+          <div className="listOF">
+            <ForumIcon
+              style={{ color: "#666", marginRight: "10px" }}
+            ></ForumIcon>
+            <h4>Go Credit : {user.credit}</h4>
+          </div>
+          <div className='bbuttons'>
+          {/* <Button>Buy Go Credit</Button> */}
+          <Button style={{marginTop: '10px'}} variant='contained' color= 'light'>Change Profile Picture</Button>
+          <Button style={{marginTop: '30px'}} variant='contained' color= 'secondary'
+          onClick={()=>{
+              auth.signOut();
+              history.push('/')
+          }}
+          >Log Out</Button>
+
+          </div>
         </div>
       </div>
     </div>
