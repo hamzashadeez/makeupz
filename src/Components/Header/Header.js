@@ -5,11 +5,14 @@ import Badge from "@material-ui/core/Badge";
 import MailIcon from "@material-ui/icons/Mail";
 import { IconButton } from "@material-ui/core";
 import { auth } from "../../firebase";
+import { useHistory } from 'react-router-dom'
 
 function Header() {
+  let history = useHistory();
+  
   return (
     <div className="headercontainer shadow">
-      <IconButton onClick={()=>auth.signOut()}>
+      <IconButton onClick={()=>history.push('/profile')}>
         <Avatar>H</Avatar>
       </IconButton>
       <h2>Makeupz</h2>

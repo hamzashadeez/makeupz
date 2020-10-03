@@ -6,7 +6,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 function FeedPost({ username, url, text, likes }) {
   const [A, setA] = useState("");
   useEffect(() => {
-    setA(username[0]);
+    // setA(username[0]);
   }, []);
   return (
     <div className="feedpost">

@@ -4,6 +4,8 @@ import Home from "./Screens/Home/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Auth from "./Screens/Auth/Auth";
 import SignUp from "./Screens/Auth/SignUp";
+import Profile from './Screens/Profile/Profile'
+// import {UserData} from './context';
 
 function App() {
   const routes = [
@@ -23,6 +25,11 @@ function App() {
       path: "/home",
       sidebar: () => <div>patients</div>,
       main: () =><Home />,
+    },
+    {
+      path: "/profile",
+      sidebar: () => <div>patients</div>,
+      main: () =><Profile />
     },
   ];
   return (

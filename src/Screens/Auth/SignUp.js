@@ -40,6 +40,18 @@ function SignUp() {
       return authUser.user.updateProfile({
         displayName: username
       })
+      .then(async()=>{
+        const profile = await db.collection('users').doc(username).set({
+          username,
+          email,
+          password,
+          credit: 30,
+          posts: 0,
+          followers: 0,
+          following: 0,
+          videos: 0
+        })
+      })
     })
     .catch((error)=>alert(error.message))
   }

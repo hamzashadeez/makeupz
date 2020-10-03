@@ -4,7 +4,7 @@
 }
 .login {
   padding: 20px 20px;
-  background-image: url("../../images/lipstick.jpg");
+  /* background-image: url("../../images/lipstick.jpg"); */
   background-position: center;
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -12,7 +12,7 @@
 }
 .login2 {
   padding: 20px 20px;
-  background-image: url("../../images/brush.jpg");
+  /* background-image: url("../../images/brush.jpg"); */
   background-position: center;
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
