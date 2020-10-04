@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className="headercontainer shadow">
       <IconButton onClick={()=>history.push('/profile')}>
-        <MenuIcon></MenuIcon>
+        <MenuIcon style={{color: '#fff', marginLeft: "-15px"}}></MenuIcon>
       </IconButton>
       <h2>Makeupz</h2>
       <IconButton>

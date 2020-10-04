@@ -1,13 +1,14 @@
 .profilecontainer{
-    height: 95vh;
+    height: 80vh;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 .bbbb{
     max-width: 500px;
+    width: 100%;
     position: absolute;
-    object-fit: contain;
+    /* object-fit: contain; */
     /* top: 0; */
     height: 200px;
     z-index: -1;

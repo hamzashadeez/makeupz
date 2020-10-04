@@ -46,7 +46,7 @@ function Profile() {
     <div className="profilecontainer">
       <div className="pheader">
         <IconButton onClick={()=> history.push('/home')}>
-          <ArrowBackIcon />
+          <ArrowBackIcon style={{color: '#fff'}}/>
         </IconButton>
         <h3>Profile</h3>
       </div>
@@ -101,7 +101,7 @@ function Profile() {
           <div className='bbuttons'>
           {/* <Button>Buy Go Credit</Button> */}
           <Button style={{marginTop: '10px'}} variant='contained' color= 'light'>Change Profile Picture</Button>
-          <Button style={{marginTop: '30px'}} variant='contained' color= 'secondary'
+          <Button style={{marginTop: '10px'}} variant='contained' color= 'secondary'
           onClick={()=>{
               auth.signOut();
               history.push('/')
