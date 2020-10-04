@@ -5,6 +5,10 @@
     border: lightgray 1px solid;
 
 }
+#dp{
+    width: 32px;
+    border-radius: 50%;
+}
 .post_img{
     width: 100%;
     border-bottom: 1px solid lightgray;

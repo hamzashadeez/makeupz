@@ -49,7 +49,8 @@ function SignUp() {
           posts: 0,
           followers: 0,
           following: 0,
-          videos: 0
+          videos: 0,
+          dp: 'https://firebasestorage.googleapis.com/v0/b/makeup-tut.appspot.com/o/images%2Flady.png?alt=media&token=107b267d-d330-4583-aece-4c62f340ab7a'
         })
       })
     })

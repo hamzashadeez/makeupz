@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-function FeedPost({ username, url, text, likes }) {
+function FeedPost({ username, url, text, likes, dp }) {
   const [A, setA] = useState("");
   useEffect(() => {
     // setA(username[0]);
@@ -11,7 +11,7 @@ function FeedPost({ username, url, text, likes }) {
   return (
     <div className="feedpost">
       <div className="postheader">
-        <Avatar>{A}</Avatar>
+        <img src={dp} id='dp'/>
         <h3 className="username_text">{username}</h3>
       </div>
       <img className="post_img" src={url} />

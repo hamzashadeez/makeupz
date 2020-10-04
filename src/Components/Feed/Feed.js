@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FeedPost from "../FeedPost/FeedPost";
 import "./style.css";
-import firebase from 'firebase'
+import firebase from "firebase";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { db, storage } from "../../firebase";
+import { db, auth, storage } from "../../firebase";
 import { IconButton } from "@material-ui/core";
 import PostFeedModal from "../Modals/PostFeedModal";
 import { Button, TextField } from "@material-ui/core";
@@ -30,28 +30,47 @@ function Feed() {
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
   const [text, setText] = useState("");
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState({});
+  // grabing the user Data
+  const getData = async (us) => {
+    const res = await db
+      .collection("users")
+      .where("email", "==", us.email)
+      .get()
+      .then((q) => {
+        q.forEach((dd) => {
+          setUser(dd.data());
+        });
+      });
+  };
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        getData(authUser);
+      } else {
+      }
+    });
+  });
+
   function openModal() {
     setIsOpen(true);
   }
   function closeModal() {
     setIsOpen(false);
   }
-  useEffect(()=>{
-    firebase.auth().onAuthStateChanged(function(user) {
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         // User is signed in.
         // console.log('user')
-        setUsername(user.displayName)
+        setUsername(user.displayName);
       } else {
         // No user is signed in.
         // alert()
       }
     });
-    
-    
-    
-  }, [])
+  }, []);
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -60,48 +79,60 @@ function Feed() {
 
   const handleSubmit = () => {
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on("state_changed", (snapshot) => {
-      //progress...
-      const pr = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-      setProgress(pr);
-    },
-    (error)=>{
-      alert(error.message)
-    },
-    ()=>{
-      storage
-        .ref('images')
-        .child(image.name)
-        .getDownloadURL()
-        .then((url)=>{
-          // post image
-          db.collection('feeds').add({
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            text: text,
-            url: url,
-            username: username
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        //progress...
+        const pr = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(pr);
+      },
+      (error) => {
+        alert(error.message);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            // post image
+            db.collection("feeds")
+              .add({
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                text: text,
+                url: url,
+                dp: user.dp,
+                username: username,
+              })
+              .then(() => {
+                db.collection("users")
+                  .doc(user.username)
+                  .update({
+                    posts: firebase.firestore.FieldValue.increment(1),
+                  });
+              });
+            setIsOpen(false);
+            setProgress(0);
+            setText("");
+            setImage(null);
           });
-          setIsOpen(false);
-          setProgress(0);
-          setText('');
-          setImage(null);
-        })
-    }
+      }
     );
   };
   useEffect(() => {
-    db.collection("feeds").onSnapshot((snapshot) => {
-      console.log(snapshot.docs);
-      setFeeds(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          feed: doc.data(),
-        }))
-      );
-    });
-
+    db.collection("feeds")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        console.log(snapshot.docs);
+        setFeeds(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            feed: doc.data(),
+          }))
+        );
+      });
   }, []);
   return (
     <div className="feed">
@@ -118,6 +149,7 @@ function Feed() {
             text={feed.text}
             url={feed.url}
             likes={feed.likes}
+            dp={feed.dp}
           />
         );
       })}
@@ -148,7 +180,7 @@ function Feed() {
             onChange={(e) => setText(e.target.value)}
             variant="outlined"
           />
-          <progress value={progress} style={{width: '100%'}}></progress>
+          <progress value={progress} style={{ width: "100%" }}></progress>
           <div
             style={{
               display: "flex",
