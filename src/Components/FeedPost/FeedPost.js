@@ -15,9 +15,10 @@ function FeedPost({ feedID, username, url, text, likes, dp, user }) {
     db.collection('feeds').doc(feedID).collection('comment').add({
       text: comment,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      username: user.displayName
+      username: user
     })
     setComment('')
+    console.log(user)
   };
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function FeedPost({ feedID, username, url, text, likes, dp, user }) {
     return () => {
       unsubscribe();
     };
-  }, [feedID]);
+  }, [feedID, user]);
   return (
     <div className="feedpost">
       <div className="postheader">
@@ -59,7 +60,7 @@ function FeedPost({ feedID, username, url, text, likes, dp, user }) {
       {/* List of comments */}
         <div className='comments'>
           {comments.map(comment=>
-            <p>
+            <p key={comment.text}>
               <strong>{comment.username}</strong> {comment.text}
             </p>
           )}

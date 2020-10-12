@@ -78,48 +78,51 @@ function Feed() {
   }
 
   const handleSubmit = () => {
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        //progress...
-        const pr = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(pr);
-      },
-      (error) => {
-        alert(error.message);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            // post image
-            db.collection("feeds")
-              .add({
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                text: text,
-                url: url,
-                dp: user.dp,
-                username: username,
-              })
-              .then(() => {
-                db.collection("users")
-                  .doc(user.username)
-                  .update({
-                    posts: firebase.firestore.FieldValue.increment(1),
-                  });
-              });
-            setIsOpen(false);
-            setProgress(0);
-            setText("");
-            setImage(null);
-          });
-      }
-    );
+    if(image !== null){
+
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          //progress...
+          const pr = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(pr);
+        },
+        (error) => {
+          alert(error.message);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then((url) => {
+              // post image
+              db.collection("feeds")
+                .add({
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  text: text,
+                  url: url,
+                  dp: user.dp,
+                  username: username,
+                })
+                .then(() => {
+                  db.collection("users")
+                    .doc(user.username)
+                    .update({
+                      posts: firebase.firestore.FieldValue.increment(1),
+                    });
+                });
+              setIsOpen(false);
+              setProgress(0);
+              setText("");
+              setImage(null);
+            });
+        }
+      );
+    }
   };
   useEffect(() => {
     db.collection("feeds")
@@ -151,7 +154,7 @@ function Feed() {
             likes={feed.likes}
             dp={feed.dp}
             feedID = {id}
-            user = {user}
+            user = {username}
           />
         );
       })}
