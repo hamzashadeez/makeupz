@@ -27,8 +27,8 @@ function FeedPost({ feedID, username, url, text, likes, dp, user }) {
       unsubscribe = db
         .collection("feeds")
         .doc(feedID)
-        .orderBy('timestamp', 'desc')
         .collection("comment")
+        .orderBy('timestamp', 'desc')
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
