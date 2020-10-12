@@ -29,3 +29,27 @@
     font-family: 'Pacifico', cursive;
     margin-left: 15px;
 }
+.Comment__form{
+    display: flex;
+    margin-top: 10px;
+}
+.Comment__form > input{
+    flex: 1;
+    /* border: none; */
+    border-top: 1px solid lightgray;
+    padding-left: 10px;
+}
+.Comment__form > button{
+    padding: 3px 7px;
+    border: none;
+    color: rgb(160, 0, 0);
+    border-top: 1px solid lightgray;
+    background-color: transparent;
+}
+
+.comments{
+    padding: 10px
+}
+.comments > p{
+    font-size: small;
+}

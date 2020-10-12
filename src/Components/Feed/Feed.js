@@ -150,6 +150,8 @@ function Feed() {
             url={feed.url}
             likes={feed.likes}
             dp={feed.dp}
+            feedID = {id}
+            user = {user}
           />
         );
       })}
