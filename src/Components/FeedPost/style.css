@@ -1,56 +1,58 @@
-.feedpost{
-    background: #fefefe;
-    max-width: 500px;
-    margin: 0 auto 45px auto;
-    border: lightgray 1px solid;
+.feedpost {
+  background: #fefefe;
+  max-width: 500px;
+  margin: 0 auto 45px auto;
+  border: lightgray 1px solid;
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+  box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+}
+#dp {
+  width: 32px;
+  border-radius: 50%;
+}
+.post_img {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  object-fit: contain;
+}
+.post_text {
+  font-weight: normal;
+  font-size: 16px;
+}
+.postheader {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+.username_text {
+  font-weight: 400;
+  color: #222;
+  font-family: "Pacifico", cursive;
+  margin-left: 15px;
+}
+.Comment__form {
+  display: flex;
+  margin-top: 10px;
+}
+.Comment__form > input {
+  flex: 1;
+  /* border: none; */
+  border-top: 1px solid lightgray;
+  padding-left: 10px;
+}
+.Comment__form > button {
+  padding: 3px 7px;
+  border: none;
+  color: rgb(160, 0, 0);
+  border-top: 1px solid lightgray;
+  background-color: transparent;
+}
 
+.comments {
+  padding: 10px;
 }
-#dp{
-    width: 32px;
-    border-radius: 50%;
-}
-.post_img{
-    width: 100%;
-    border-bottom: 1px solid lightgray;
-    border-top: 1px solid lightgray;
-    object-fit: contain;
-}
-.post_text{
-    font-weight: normal;
-    font-size: 16px;
-}
-.postheader{
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-}
-.username_text{
-    font-weight: 400;
-    color: #222;
-    font-family: 'Pacifico', cursive;
-    margin-left: 15px;
-}
-.Comment__form{
-    display: flex;
-    margin-top: 10px;
-}
-.Comment__form > input{
-    flex: 1;
-    /* border: none; */
-    border-top: 1px solid lightgray;
-    padding-left: 10px;
-}
-.Comment__form > button{
-    padding: 3px 7px;
-    border: none;
-    color: rgb(160, 0, 0);
-    border-top: 1px solid lightgray;
-    background-color: transparent;
-}
-
-.comments{
-    padding: 10px
-}
-.comments > p{
-    font-size: small;
+.comments > p {
+  font-size: small;
 }

@@ -5,7 +5,10 @@
     margin: auto;
     height: 90vh;
     overflow-y: scroll;
-    padding: 5px 10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    padding-bottom: 40px;
 }
 .addicon{
     font-size: 50px;

@@ -1,10 +1,10 @@
 MAKEUPZ FEATURES
 
-[] Authentication
-[] Feeds
+[*] Authentication
+[*] Feeds
 [] Videos
 [] Like Functionality
-[] Post
-[] User Profile
+[*] Post
+[*] User Profile
 [] Save Post
-[] Comment to Posts
+[*] Comment to Posts

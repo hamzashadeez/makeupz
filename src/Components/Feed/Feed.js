@@ -139,11 +139,13 @@ function Feed() {
   }, []);
   return (
     <div className="feed">
+      {modalIsOpen ? null: 
       <div className="addicon">
         <IconButton onClick={openModal}>
           <AddCircleIcon color="secondary" style={{ fontSize: 50 }} />
         </IconButton>
       </div>
+      }
       {feeds.map(({ id, feed }) => {
         return (
           <FeedPost
