@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Home from "./Screens/Home/Home";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Auth from "./Screens/Auth/Auth";
 import SignUp from "./Screens/Auth/SignUp";
 import Profile from './Screens/Profile/Profile'
