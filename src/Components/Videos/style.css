@@ -9,7 +9,7 @@
 .videoContainer {
   width: 100%;
   /* height: 300px; */
-  padding: 10px;
+  /* padding: 10px; */
   margin-top: 30px;
   background-color: #efefef;
   border: lightgray 1px solid;
@@ -24,6 +24,13 @@
 .videoContainer iframe {
   width: 100%;
   
+}
+#title{
+    padding: 3px 10px;
+}
+#title h4{
+    color: #333;
+    letter-spacing: 1.1px;
 }
 
 .alerting{

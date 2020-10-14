@@ -13,7 +13,7 @@ const Video = ({src, title}) => {
         allowfullscreen
       ></iframe>
      
-      <div>
+      <div id='title'>
         <h4>{title}</h4>
       </div>
     </div>
