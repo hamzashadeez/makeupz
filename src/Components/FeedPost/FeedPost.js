@@ -29,7 +29,7 @@ function FeedPost({ feedID, username, url, text, likes, dp, user }) {
         .collection("feeds")
         .doc(feedID)
         .collection("comment")
-        .orderBy('timestamp', 'desc')
+        .orderBy('timestamp', 'asc')
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
