@@ -8,6 +8,7 @@ import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./style.css";
 import Feed from "../Feed/Feed";
+import VideoScreen from "../Videos/VideoScreen";
 
 const useStyles = makeStyles({
   root: {
@@ -25,14 +26,14 @@ const useStyles = makeStyles({
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [path] = useState(["/home/feeds", "/home/videos", "/home/saved"]);
+  // const [path] = useState(["/home/feeds", "/home/videos", "/home/saved"]);
   
   const render =()=>{
     switch (value){
         case 0:
              return <Feed />;
         case 1:
-             return <h1>Videos</h1>;
+             return <VideoScreen />;
         case 2:
              return <h1>Saved</h1>;
     }

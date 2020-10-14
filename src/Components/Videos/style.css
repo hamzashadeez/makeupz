@@ -1,0 +1,36 @@
+.Video_screen {
+  padding-top: 3px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+
+.videoContainer {
+  width: 100%;
+  /* height: 300px; */
+  padding: 10px;
+  margin-top: 30px;
+  background-color: #efefef;
+  border: lightgray 1px solid;
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+  box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.69);
+}
+.videoContainer:first-child {
+  margin-top: 10px;
+}
+
+.videoContainer iframe {
+  width: 100%;
+}
+
+.alerting{
+    background-color: lightpink;
+    padding: 10px 5px;
+    border: 1px solid pink;
+}
+.alerting > h6{
+    color: #333;
+    letter-spacing: 1px;
+}
