@@ -10,4 +10,5 @@ font-family: 'Poppins', sans-serif; */
 }
 .App{
   max-width: 500px;
+  margin: auto;
 }
